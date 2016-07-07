@@ -1,0 +1,84 @@
+.chapter__text-container {
+    margin-top: 8vh;
+    margin-bottom: 10vh;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.chapter__text-wrapper {
+    padding: 0 5%;
+}
+
+.chapter__text {
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.chapter__note {
+    width:90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.chapter__note--bottom {
+    margin-top: 5vh;
+}
+
+@media (min-width: 500px) {
+    .chapter__text {
+        width: 80%;
+    }
+    .chapter__note {
+        width: 55%;
+    }
+}
+
+@media (min-width: 800px) {
+    .chapter__text-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .chapter__text {
+        width: 55%;
+        order: 1;
+        margin: 0;
+    }
+    .chapter__note {
+        width:45%;
+        margin: 0;
+        padding-left: 5%;
+    }
+    .chapter__note--top {
+        order: 2;
+    }
+    .chapter__note--bottom {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .chapter__text > p:last-child {
+        margin-bottom: 0;
+    }
+    .chapter__text > p:first-child {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1080px) {
+    .chapter__note {
+        padding: 0;
+    }
+}

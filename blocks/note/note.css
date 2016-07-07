@@ -1,0 +1,18 @@
+.note {
+    border-left: 3px solid #ccc;
+    margin: 0;
+    padding: 0;
+    padding-left: 5%;
+
+    display: block;
+    text-align: justify;
+}
+
+.note--big {
+    font-weight: 700;
+}
+
+.note--small {
+    font-weight: 400;
+    font-size: 0.8em;
+}
