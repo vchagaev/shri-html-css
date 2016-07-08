@@ -35,6 +35,12 @@
     margin-top: 5vh;
 }
 
+.chapter__note--img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media (min-width: 500px) {
     .chapter__text {
         width: 80%;

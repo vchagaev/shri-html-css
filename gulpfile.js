@@ -8,7 +8,7 @@ const postcss = require('gulp-postcss');
 const htmlToBl = require('html2bl');
 const htmlmin = require('gulp-htmlmin');
 const cssnano = require('gulp-cssnano');
-const respons = require('gulp-responsive');
+const respons = require('gulp-responsive-images');
 const imgOpt = require('gulp-image-optimization');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
@@ -78,43 +78,29 @@ gulp.task('copy files', () => {
     gulp.src('css/**/*')
         .pipe(gulp.dest(param.out + '/css'));
     gulp.src('img/**/*')
-        // .pipe(respons({
-        //     '*.*': [
-        //         {
-        //             width: 1680,
-        //             height: 1120,
-        //             crop: 'center'
-        //         },
-        //         {
-        //             width: 600,
-        //             height: 400,
-        //             crop: 'center',
-        //             rename: ({
-        //                 suffix: '-600'
-        //             })
-        //         },
-        //         {
-        //             width: 400,
-        //             height: 266,
-        //             crop: 'center',
-        //             rename: ({
-        //                 suffix: '-400'
-        //             })
-        //         },
-        //         {
-        //             width: 300,
-        //             height: 200,
-        //             crop: 'center',
-        //             rename: ({
-        //                 suffix: '-300'
-        //             })
-        //         }
-        //     ]
-        // }))
-        // .pipe(imgOpt({
-        //     optimizationLevel: 5,
-        //     progressive: true,
-        //     interlaced: true
-        // }))
+        .pipe(respons({
+            '*.jpeg': [
+                {
+                    width: 1680
+                },
+                {
+                    width: 600,
+                    suffix: '-600'
+                },
+                {
+                    width: 400,
+                    suffix: '-400'
+                },
+                {
+                    width: 300,
+                    suffix: '-300'
+                }
+            ]
+        }))
+        .pipe(imgOpt({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        }))
         .pipe(gulp.dest(param.out + '/img'));
 });
